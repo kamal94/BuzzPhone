@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class TwiMlController extends Controller
 {
@@ -14,6 +16,8 @@ class TwiMlController extends Controller
      */
     public function voice(Request $request)
     {
-        return view('voice/test');
+        $content = View::make('home')->with('somevar', 3);
+
+        return Response::make($content, '200')->header('Content-Type', 'text/xml');
     }
 }
