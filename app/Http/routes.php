@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('BuzzPhoneVoice',  'TwiMlController@voice');
+Route::get('BuzzPhone/Voice',  'TwiMlController@voice');

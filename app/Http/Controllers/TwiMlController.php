@@ -14,6 +14,6 @@ class TwiMlController extends Controller
      */
     public function voice(Request $request)
     {
-        dd($request);
+        return view('voice/test');
     }
 }
