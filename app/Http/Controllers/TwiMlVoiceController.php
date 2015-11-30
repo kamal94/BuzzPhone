@@ -59,8 +59,8 @@ class TwiMlVoiceController extends Controller
 
         $response = $story->runPhoneBuzz(intval($num));
 
-        if(empty($response))
-            return $this->error($num);
+        if($response[0] == 0)
+            return $this->error($response[1]);
 
         return view('result')->with([
             'say_text' => $response
@@ -72,11 +72,10 @@ class TwiMlVoiceController extends Controller
      *
      * @return mixed
      */
-    public function error($input)
+    public function error($errorMessage)
     {
         $story = new StoryLine();
-        $response = "I'm sorry, something went wrong." .
-            'you entered' . $input . '. ' .$story->askForNumber();
+        $response = $errorMessage . $story->askForNumber();
         return view('play')->with([
             'say_text' => $response
         ]);

@@ -49,8 +49,14 @@ class StoryLine
      */
     public function runPhoneBuzz($num)
     {
-        if(empty($num) || !is_int($num) || $num < 1)
-            return null;
+        if(empty($num))
+            return [0, "You didn't enter any number. "];
+        if(!is_int($num))
+            return [0, "What you entered was not a number. "];
+        if($num < 1)
+            return [0, "Please enter a number above zero. "];
+        if($num > 50)
+            return [0, "That number is too big for me. Please enter a number between 1 and 50. "];
 
         $response = "";
 
@@ -66,7 +72,7 @@ class StoryLine
             }
         }
 
-        return $response;
+        return [1,$response];
     }
 
     /**
