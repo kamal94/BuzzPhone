@@ -51,9 +51,6 @@ class TwiMlVoiceController extends Controller
      */
     public function result(Request $request)
     {
-        return view('play')->with([
-            'say_text' => "testing!"
-        ]);
         $story = new StoryLine();
         $num = $request->get('Digits');
         $response = $story->runPhoneBuzz($num);
