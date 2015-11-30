@@ -34,7 +34,7 @@ class TwiMlVoiceController extends Controller
     /**
      * Returns a playing simulation that asks the user to enter a number.
      *
-     * @return mixed
+     * @return View
      */
     public function play()
     {
@@ -46,6 +46,8 @@ class TwiMlVoiceController extends Controller
 
     /**
      * Accepts the a user's digit input, verifies it, and returns the result.
+     * If user input verification is not passed, the user is redirected to
+     * an error handling controller method.
      *
      * @param Request $request
      * @return mixed
@@ -78,6 +80,11 @@ class TwiMlVoiceController extends Controller
         return view('play')->with([
             'say_text' => $response
         ]);
+    }
+
+    public function end()
+    {
+        return view('end');
     }
 
     public function test($num)
