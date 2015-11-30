@@ -55,7 +55,7 @@ class TwiMlVoiceController extends Controller
         $story = new StoryLine();
         $num = $request->get('Digits');
 
-        $response = $story->runPhoneBuzz($num);
+        $response = $story->runPhoneBuzz(intval($num));
 
         if(empty($response))
             return $this->error($num);
