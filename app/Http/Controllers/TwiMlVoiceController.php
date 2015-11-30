@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\src\StoryLine;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Request;use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\View;
 
 /**
@@ -49,14 +49,14 @@ class TwiMlVoiceController extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function result(Request $request)
+    public function result(\Illuminate\Http\Request $request)
     {
         $story = new StoryLine();
         $num = $request->get('Digits');
         $response = $story->runPhoneBuzz($num);
 
         if(empty($response))
-            $this->error();
+            return $this->error();
 
         return view('result')->with([
             'result_text' => $story->runPhoneBuzz($request->get('Digits'))
