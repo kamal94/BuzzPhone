@@ -11,8 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function() {
     return view('welcome');
 });
 
-Route::get('BuzzPhone/Voice',  'TwiMlController@voice');
+Route::get('buzzphone/voice/intro',  'TwiMlVoiceController@intro');
+Route::get('buzzphone/voice/play',  'TwiMlVoiceController@play');
+Route::get('buzzphone/voice/error',  'TwiMlVoiceController@error');
+Route::post('buzzphone/voice/result',  'TwiMlVoiceController@result');
