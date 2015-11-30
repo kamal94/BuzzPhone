@@ -23,15 +23,15 @@ class StoryLine
 
         $response = "";
 
-        for($i = 0; $i < $num; $i++) {
-            if($this->isDivisibleByThreeAndFive($num)){
+        for($i = 1; $i <= $num; $i++) {
+            if($this->isDivisibleByThreeAndFive($i)){
                 $response .= "Fizz Buzz, ";
-            } else if($this->isDivisibleByThree($num)) {
+            } else if($this->isDivisibleByThree($i)) {
                 $response .= "Fizz, ";
-            } else if($this->isDivisibleByFive($num)) {
+            } else if($this->isDivisibleByFive($i)) {
                 $response .= "Buzz, ";
             } else {
-                $response .= $num . ", ";
+                $response .= $i . ", ";
             }
         }
 
@@ -50,17 +50,23 @@ class StoryLine
 
     public function isDivisibleByThreeAndFive($num)
     {
-        return ($num % 3 === 0) && ($num % 5 === 0);
+        if(empty($num))
+            return false;
+        return (($num % 3) === 0) && ($num % 5 === 0);
     }
 
     public function isDivisibleByThree($num)
     {
-        return ($num % 3 === 0);
+        if(empty($num))
+            return false;
+        return (($num % 3)=== 0);
     }
 
     public function isDivisibleByFive($num)
     {
-        return ($num % 5 === 0);
+        if(empty($num))
+            return false;
+        return (($num % 5) === 0);
     }
 
 }
