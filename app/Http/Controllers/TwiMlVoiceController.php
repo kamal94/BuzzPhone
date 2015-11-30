@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\src\StoryLine;
-use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Request;use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\View;
 
 /**
@@ -52,6 +51,9 @@ class TwiMlVoiceController extends Controller
      */
     public function result(Request $request)
     {
+        return view('play')->with([
+            'say_text' => "testing!"
+        ]);
         $story = new StoryLine();
         $num = $request->get('Digits');
         $response = $story->runPhoneBuzz($num);
