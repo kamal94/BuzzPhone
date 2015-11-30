@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\View;
 
+
 /**
  * Class TwiMlVoiceController
  *
@@ -22,7 +23,7 @@ class TwiMlVoiceController extends Controller
      *
      * @param Request $request
      */
-    public function intro(Request $request)
+    public function intro()
     {
         $story = new StoryLine();
         return view('introduction')->with([
