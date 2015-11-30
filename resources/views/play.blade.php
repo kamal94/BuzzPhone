@@ -4,6 +4,6 @@
         <Say voice="woman" language="en">{!! $say_text !!} </Say>
     </Gather>
     <Redirect method="POST">
-        ../result?Digits=TIMEOUT
+        /buzzphone/voice/result?Digits=TIMEOUT
     </Redirect>
 @endsection
