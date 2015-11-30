@@ -82,15 +82,25 @@ class TwiMlVoiceController extends Controller
         ]);
     }
 
+    /**
+     * Asks the user if they want to play again.
+     *
+     * @return View
+     */
     public function end()
     {
         return view('end');
     }
 
+    /*
+     * A test contorller method.
+     */
     public function test($num)
     {
         $story = new StoryLine();
-        $response = $story->runPhoneBuzz(intval($num));
-        return $response."h";
+        for($i = 0; $i < 20; $i++)
+        {
+            echo $story->introduction() . '<br>';
+        }
     }
 }
