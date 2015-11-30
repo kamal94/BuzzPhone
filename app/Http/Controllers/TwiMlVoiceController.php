@@ -61,7 +61,7 @@ class TwiMlVoiceController extends Controller
             return $this->error($num);
 
         return view('result')->with([
-            'say_text' => $story->runPhoneBuzz($request->get('Digits'))
+            'say_text' => $story->runPhoneBuzz($response)
         ]);
     }
 
