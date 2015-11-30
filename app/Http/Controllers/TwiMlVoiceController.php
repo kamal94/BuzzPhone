@@ -55,13 +55,14 @@ class TwiMlVoiceController extends Controller
     public function result(\Illuminate\Http\Request $request)
     {
         $story = new StoryLine();
-        $num = $request->get('Digits');
+        $num = $request->get('Digits'); //get digits entered by user
 
-        $response = $story->runPhoneBuzz(intval($num));
+        $response = $story->runPhoneBuzz(intval($num)); //get output of game.
 
-        if($response[0] == 0)
+        if($response[0] == 0)   //if there was an error, return the error message
             return $this->error($response[1]);
 
+        //if no error, output the result of the game
         return view('result')->with([
             'say_text' => $response[1]
         ]);

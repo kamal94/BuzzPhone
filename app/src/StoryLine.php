@@ -44,8 +44,9 @@ class StoryLine
      * in the string.
      *
      * @param $num  int the number to which to count from 1
-     * @return null|string  A string as described is returned, or null if the passed
-     *      integer is not a number, less than 1, or is null.
+     * @return array  An array of length 2. The first index is either 1 or 0. If 0, then an error
+     *      occurred. If 1, then no error occurred. In both cases, there will either an error message
+     *      in the second index, or the output of the game.
      */
     public function runPhoneBuzz($num)
     {
@@ -60,6 +61,7 @@ class StoryLine
 
         $response = "";
 
+        //count from 1 and check for fizz and buzzes
         for($i = 1; $i <= $num; $i++) {
             if($this->isDivisibleByThreeAndFive($i)){
                 $response .= "Fizz Buzz, ";
@@ -72,7 +74,7 @@ class StoryLine
             }
         }
 
-        return [1,$response];
+        return [1,$response];   //if no error, output with result 1 and response message in array
     }
 
     /**
