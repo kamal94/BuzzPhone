@@ -63,7 +63,7 @@ class TwiMlVoiceController extends Controller
             return $this->error($response[1]);
 
         return view('result')->with([
-            'say_text' => $response
+            'say_text' => $response[1]
         ]);
     }
 
