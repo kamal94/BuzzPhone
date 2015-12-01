@@ -19,6 +19,10 @@ The files of interest are listed below in the file structure:
 * resources/views/end.blade.php
 * .env.example
 
+to configure the server environment, edit the ".env.example" file and rename it to ".env".
+
+This application is hosted temporarily at http://45.55.46.135/
+
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
