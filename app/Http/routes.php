@@ -23,3 +23,4 @@ Route::get('buzzphone/voice/error',  'TwiMlVoiceController@error');
 Route::get('buzzphone/voice/result',  'TwiMlVoiceController@result');
 Route::get('buzzphone/voice/end',  'TwiMlVoiceController@end');
 Route::get('buzzphone/voice/test/{num}',  'TwiMlVoiceController@test');
+Route::get('success', 'TwiMlVoiceController@success');

@@ -130,6 +130,13 @@ class TwiMlVoiceController extends Controller
             'StatusCallbackMethod' => 'GET',
             'Record' => 'false',
         ));
+
+        return $this->success();
+    }
+
+    public function success()
+    {
+        return view('success');
     }
 
     public function initiateGame()
@@ -138,4 +145,5 @@ class TwiMlVoiceController extends Controller
             'say_text' => 'Someone asked me to play a BuzzPhone game with you!',
         ]);
     }
+
 }
