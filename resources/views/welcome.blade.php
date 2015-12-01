@@ -33,12 +33,19 @@
             .title {
                 font-size: 96px;
             }
+
+            .content-text{
+                font-size: 32px;
+            }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="title">BuzzPhone</div>
+                <div class="content-text">Send your friend a game of FizzBuzz</div>
+                {!! Form::open(['url' => '/buzzphone/voice/', 'method' => 'POST']) !!}
+                {!! Form::close() !!}
             </div>
         </div>
     </body>
