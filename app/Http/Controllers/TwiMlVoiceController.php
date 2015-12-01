@@ -122,10 +122,10 @@ class TwiMlVoiceController extends Controller
         $account_sid = env('ACCOUNT_SID');
         $auth_token = env('AUTH_TOKEN');
         $client = new Services_Twilio($account_sid, $auth_token);
-        dd([$phone, $account_sid, $auth_token, env('APP_URL'), $client]);
 
         $client->account->calls->create('+17348384422', $phone, env('APP_URL').'/buzzphone/voice/initiateGame', array(
-            'Method' => 'GET',
+            'Method' => 'POST',
+            'FallbackUrl' => env('APP_URL').'/buzzphone/voice/intro',
             'FallbackMethod' => 'GET',
             'StatusCallbackMethod' => 'GET',
             'Record' => 'false',
