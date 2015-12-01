@@ -1,3 +1,24 @@
+#BuzzPhone
+
+This is a codebase designed to the specifications of the first two phases in the following challenge: https://lendup.hackpad.com/Coding-Challenge-PhoneBuzz-O9NqDpQxsai#:h=Requirements
+
+This website uses the Laravel Framework (see below).
+
+The files of interest are listed below in the file structure:
+
+* app/Http/routes.php
+* app/Http/Controllers/TwiMlVoiceController.php
+* app/src/storyline.php
+* tests/StoryLineTests.php
+* resources/views/introduction
+* resources/views/welcome.blade.php
+* resources/views/play.blade.php
+* resources/views/result.blade.php
+* resources/views/response.blade.php
+* resources/views/success.blade.php
+* resources/views/end.blade.php
+* .env.example
+
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
