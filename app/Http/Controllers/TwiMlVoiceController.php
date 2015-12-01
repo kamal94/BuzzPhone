@@ -119,12 +119,10 @@ class TwiMlVoiceController extends Controller
             return view('welcome')->with(['error' => 'This is not a valid phone number. It is to short for me to understand']);
 
 
-        require_once('/vendor/twilio/sdk/Services/Twilio.php');
-
         $account_sid = env('ACCOUNT_SID');
         $auth_token = env('AUTH_TOKEN');
         $client = new Services_Twilio($account_sid, $auth_token);
-        dd([$phone, $account_sid, $auth_token, env('APP_URL')]);
+        dd([$phone, $account_sid, $auth_token, env('APP_URL'), $client]);
 
         $client->account->calls->create('+17348384422', $phone, env('APP_URL').'/buzzphone/voice/initiateGame', array(
             'Method' => 'GET',
