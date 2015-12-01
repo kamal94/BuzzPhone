@@ -107,6 +107,13 @@ class TwiMlVoiceController extends Controller
         }
     }
 
+    /**
+     * Receives a game request to be sent to a phone number. Validates the phone number and
+     * returns an error if it is malformed. If not, the application launches a Twilio request
+     * to call the phone number and play a game with the receiver.
+     *
+     * @return View
+     */
     public function sendGame()
     {
         $phone = trim(Input::get('phone_number'));
@@ -134,11 +141,21 @@ class TwiMlVoiceController extends Controller
         return $this->success();
     }
 
+    /**
+     * Tells the user that his call was a success
+     *
+     * @return View
+     */
     public function success()
     {
         return view('success');
     }
 
+    /**
+     * Initiate a game with the user that was called.
+     *
+     * @return mixed
+     */
     public function initiateGame()
     {
         return view('introduction')->with([
