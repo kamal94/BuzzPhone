@@ -15,7 +15,9 @@ Route::get('/', function() {
     return view('welcome');
 });
 
+Route::post('buzzphone/voice', 'TwiMlVoiceController@sendGame');
 Route::get('buzzphone/voice/intro',  'TwiMlVoiceController@intro');
+Route::get('buzzphone/voice/initiateGame',  'TwiMlVoiceController@initiateGame');
 Route::get('buzzphone/voice/play',  'TwiMlVoiceController@play');
 Route::get('buzzphone/voice/error',  'TwiMlVoiceController@error');
 Route::get('buzzphone/voice/result',  'TwiMlVoiceController@result');

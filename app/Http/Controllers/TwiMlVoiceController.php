@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\src\StoryLine;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
+use Services_Twilio;
+use Symfony\Component\HttpFoundation\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\View;
 
@@ -102,5 +105,37 @@ class TwiMlVoiceController extends Controller
         {
             echo $story->introduction() . '<br>';
         }
+    }
+
+    public function sendGame()
+    {
+        $phone = trim(Input::get('phone_number'));
+        //check for malformed input.
+        if(intval($phone) === 0)
+            return view('welcome')->with(['error' => 'This is not a phone number']);
+        if(strlen($phone) > 10)
+            return view('welcome')->with(['error' => 'This phone number is too long. I can only call numbers in the USA']);
+        if(strlen($phone) < 10)
+            return view('welcome')->with(['error' => 'This is not a valid phone number. It is to short for me to understand']);
+
+
+        $account_sid = env('ACCOUNT_SID');
+        $auth_token = env('AUTH_TOKEN');
+        $client = new Services_Twilio($account_sid, $auth_token);
+
+        $client->account->calls->create('+17348384422', $phone, env('APP_URL').'/buzzphone/voice/initiateGame', array(
+            'Method' => 'GET',
+            'FallbackMethod' => 'GET',
+            'StatusCallbackMethod' => 'GET',
+            'Record' => 'false',
+        ));
+    }
+
+    public function initiateGame()
+    {
+        $story = new StoryLine();
+        return view('introduction')->with([
+            'say_text' => 'Someone asked me to play a BuzzPhone game with you!',
+        ]);
     }
 }

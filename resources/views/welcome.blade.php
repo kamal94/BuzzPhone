@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
+        <title>BuzzPhone</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -45,7 +45,15 @@
                 <div class="title">BuzzPhone</div>
                 <div class="content-text">Send your friend a game of FizzBuzz</div>
                 {!! Form::open(['url' => '/buzzphone/voice/', 'method' => 'POST']) !!}
+                    {!! Form::input('phone', 'phone_number') !!}
+                    {!! Form::submit('Play') !!}
                 {!! Form::close() !!}
+
+                @if (isset($error))
+                    <div class="alert alert-danger">
+                        {!! $error !!}
+                    </div>
+                @endif
             </div>
         </div>
     </body>
