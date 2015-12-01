@@ -133,7 +133,6 @@ class TwiMlVoiceController extends Controller
 
     public function initiateGame()
     {
-        $story = new StoryLine();
         return view('introduction')->with([
             'say_text' => 'Someone asked me to play a BuzzPhone game with you!',
         ]);
