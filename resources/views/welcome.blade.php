@@ -45,7 +45,7 @@
                 <div class="title">BuzzPhone</div>
                 <div class="content-text">Send your friend a game of FizzBuzz</div>
                 {!! Form::open(['url' => '/buzzphone/voice/', 'method' => 'POST']) !!}
-                    {!! Form::input('number', 'phone_number', "", ['placeholder' => "A friend's phone number"]) !!}
+                    {!! Form::input('string', 'phone_number', "", ['placeholder' => "A friend's phone number"]) !!}
                     {!! Form::submit('Send') !!}
                 {!! Form::close() !!}
 
