@@ -21,7 +21,6 @@ The files of interest are listed below in the file structure:
 
 to configure the server environment, edit the ".env.example" file and rename it to ".env".
 
-This application is hosted temporarily at http://45.55.46.135/
 
 ## Laravel PHP Framework
 
